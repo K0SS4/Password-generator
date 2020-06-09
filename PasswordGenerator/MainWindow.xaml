@@ -1,0 +1,21 @@
+﻿<Window x:Class="PasswordGenerator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PasswordGenerator"
+        mc:Ignorable="d"
+        Title="Password Generator" Height="395" Width="580">
+    <Grid Margin="0,0,2,0">
+        <Button x:Name="generateButton" Content="Generate" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Margin="450,44,0,0" FontWeight="Bold" />
+        <TextBox x:Name="passwdBox" Text="Your password will appear here after clicking &quot;Generate&quot;" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Width="363" TextWrapping="Wrap" Margin="39,48,0,0"/>
+        <Label x:Name="settingsLabel" Content="Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="64,108,0,0" FontWeight="Bold" FontSize="25" FontFamily="Arial"/>
+        <CheckBox x:Name="upper" Content="Uppercase letters" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65,160,0,0"/>
+        <CheckBox x:Name="lower" Content="Lowercase letters" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65,190,0,0"/>
+        <CheckBox x:Name="numbers" Content="Numbers" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65,220,0,0"/>
+        <CheckBox x:Name="special" Content="Special characters" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65,250,0,0"/>
+        <Label x:Name="alert" Content="Check options you need and provide the password length." HorizontalAlignment="Center" VerticalAlignment="Top" Height="50" Width="340" Margin="130,306,102,0"/>
+        <Label x:Name="lengthLabel" Content="Password length" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="341,160,0,0"/>
+        <TextBox x:Name="passwdLength" Text="10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="23" TextWrapping="Wrap" Margin="377,190,0,0"/>
+    </Grid>
+</Window>
