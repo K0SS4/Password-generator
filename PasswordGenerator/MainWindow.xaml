@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:PasswordGenerator"
         mc:Ignorable="d"
         Title="Password Generator" Height="395" Width="580">
-    <Grid Margin="0,0,2,0">
-        <Button x:Name="generateButton" Content="Generate" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Margin="450,44,0,0" FontWeight="Bold" />
+    <Grid Margin="0,0,0,0">
+        <Button x:Name="generateButton" Content="Generate" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Margin="450,44,0,0" FontWeight="Bold" Click="generateButton_Click" />
         <TextBox x:Name="passwdBox" Text="Your password will appear here after clicking &quot;Generate&quot;" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Width="363" TextWrapping="Wrap" Margin="39,48,0,0"/>
         <Label x:Name="settingsLabel" Content="Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="64,108,0,0" FontWeight="Bold" FontSize="25" FontFamily="Arial"/>
         <CheckBox x:Name="upper" Content="Uppercase letters" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65,160,0,0"/>
