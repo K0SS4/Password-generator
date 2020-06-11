@@ -38,19 +38,19 @@ namespace PasswordGenerator
             }
         }
 
-        char randomUpperChars()
+        char randomUpperChar()
         {
             char character = (char)rand.Next(65, 91);
             return character;
         }
 
-        char randomLowerChars()
+        char randomLowerChar()
         {
             char character = (char)rand.Next(97, 123);
             return character;
         }
 
-        char randomNumbers()
+        char randomNumber()
         {
             char character = (char)rand.Next(48, 58);
             return character;
@@ -71,34 +71,69 @@ namespace PasswordGenerator
 
         private void generateButton_Click(object sender, RoutedEventArgs e)
         {
-            passwdLen = Int16.Parse(passwdLength.Text);
-            currentChar = new char[passwdLen];
+            flags = "";
             checkFlags();
-            if (flags.Contains("/u") && flags.Contains("/l") && flags.Contains("/n") && flags.Contains("/s"))
+            if(Int16.Parse(passwdLength.Text) == 0)
+                alert.Content = "Provide proper password length!";
+            else if (String.IsNullOrEmpty(flags))
+                alert.Content = "You have to check something!";
+            else
             {
+                passwdLen = Int16.Parse(passwdLength.Text);
+                currentChar = new char[passwdLen];
                 for (int i = 0; i < passwdLen; i++)
                 {
                     switch (rand.Next(4))
                     {
                         case 0:
-                            currentChar[i] = randomUpperChars();
+                            if (flags.Contains("/u"))
+                                currentChar[i] = randomUpperChar();
+                            else if (flags.Contains("/l"))
+                                currentChar[i] = randomLowerChar();
+                            else if (flags.Contains("/n"))
+                                currentChar[i] = randomNumber();
+                            else if (flags.Contains("/s"))
+                                currentChar[i] = randomSpecial();
                             break;
                         case 1:
-                            currentChar[i] = randomLowerChars();
+                            if (flags.Contains("/l"))
+                                currentChar[i] = randomLowerChar();
+                            else if (flags.Contains("/u"))
+                                currentChar[i] = randomUpperChar();
+                            else if (flags.Contains("/s"))
+                                currentChar[i] = randomSpecial();
+                            else if (flags.Contains("/n"))
+                                currentChar[i] = randomNumber();
                             break;
                         case 2:
-                            currentChar[i] = randomNumbers();
+                            if (flags.Contains("/n"))
+                                currentChar[i] = randomNumber();
+                            else if (flags.Contains("/s"))
+                                currentChar[i] = randomSpecial();
+                            else if (flags.Contains("/u"))
+                                currentChar[i] = randomUpperChar();
+                            else if (flags.Contains("/l"))
+                                currentChar[i] = randomLowerChar();
                             break;
                         case 3:
-                            currentChar[i] = randomSpecial();
+                            if (flags.Contains("/s"))
+                                currentChar[i] = randomSpecial();
+                            else if (flags.Contains("/n"))
+                                currentChar[i] = randomNumber();
+                            else if (flags.Contains("/l"))
+                                currentChar[i] = randomLowerChar();
+                            else if (flags.Contains("/u"))
+                                currentChar[i] = randomUpperChar();
                             break;
                     }
-
                 }
                 passwdBox.Text = new string(currentChar);
+
                 alert.Content = "";
+
+                flags = "";
             }
-            else alert.Content = "You have to check something!";
+            
         }
     }
 }
