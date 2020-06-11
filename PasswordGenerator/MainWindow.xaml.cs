@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Media.TextFormatting;
 using System.Windows.Navigation;
@@ -73,8 +74,8 @@ namespace PasswordGenerator
         {
             flags = "";
             checkFlags();
-            if(Int16.Parse(passwdLength.Text) == 0)
-                alert.Content = "Provide proper password length!";
+            if(Int16.Parse(passwdLength.Text) < 4)
+                alert.Content = "Password length should be between 4 and 99 characters";
             else if (String.IsNullOrEmpty(flags))
                 alert.Content = "You have to check something!";
             else
@@ -134,6 +135,12 @@ namespace PasswordGenerator
                 flags = "";
             }
             
+        }
+
+        private void CheckIfNumbers(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

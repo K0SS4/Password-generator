@@ -8,7 +8,7 @@
         Title="Password Generator" Height="395" Width="580">
     <Grid Margin="0,0,0,0">
         <Button x:Name="generateButton" Content="Generate" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Margin="450,44,0,0" FontWeight="Bold" Click="generateButton_Click" />
-        <TextBox x:Name="passwdBox" Text="Your password will appear here after clicking &quot;Generate&quot;" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Width="415" TextWrapping="Wrap" Margin="10,48,0,0"/>
+        <TextBox x:Name="passwdBox" Text="Your password will appear here after clicking &quot;Generate&quot;" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Height="38" Width="415" TextWrapping="Wrap" Margin="10,40,0,0"/>
         <Label x:Name="settingsLabel" Content="Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="64,108,0,0" FontWeight="Bold" FontSize="25" FontFamily="Arial"/>
         <CheckBox x:Name="upper" Content="Uppercase letters" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65,160,0,0"/>
         <CheckBox x:Name="lower" Content="Lowercase letters" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65,190,0,0"/>
@@ -16,6 +16,6 @@
         <CheckBox x:Name="special" Content="Special characters" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="65,250,0,0"/>
         <Label x:Name="alert" Content="" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Height="50" Width="340" Margin="130,306,102,0"/>
         <Label x:Name="lengthLabel" Content="Password length" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="341,160,0,0"/>
-        <TextBox x:Name="passwdLength" Text="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="23" TextWrapping="Wrap" Margin="377,190,0,0"/>
+        <TextBox x:Name="passwdLength" MaxLength="2" PreviewTextInput="CheckIfNumbers" Text="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Height="23" TextWrapping="Wrap" Margin="377,190,0,0"/>
     </Grid>
 </Window>
