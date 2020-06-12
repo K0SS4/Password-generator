@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:PasswordGenerator"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <FontFamily x:Key="COPRGT">pack://application:,,,/Fonts/#Copperplate Gothic</FontFamily>
     </Application.Resources>
 </Application>

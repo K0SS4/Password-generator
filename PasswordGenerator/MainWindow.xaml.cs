@@ -15,6 +15,7 @@ namespace PasswordGenerator
         int passwdLen;
         char[] currentChar;
         char[] specialChars;
+        char startFlag = '\0';
         string flags = "";
         public MainWindow()
         {
@@ -70,9 +71,23 @@ namespace PasswordGenerator
             if (special.IsChecked == true) flags += "/s";
         }
 
+        void checkStartFlag()
+        {
+            if (startUpper.IsChecked == true)
+                startFlag = 'u';
+            else if (startLower.IsChecked == true)
+                startFlag = 'l';
+            else if (startNumber.IsChecked == true)
+                startFlag = 'n';
+            else if (startSpecial.IsChecked == true)
+                startFlag = 's';
+        }
+
         private void generateButton_Click(object sender, RoutedEventArgs e)
         {
             flags = "";
+            startFlag = '\0';
+            checkStartFlag();
             checkFlags();
             if(Int16.Parse(passwdLength.Text) < 4)
                 alert.Content = "Password length should be between 4 and 99 characters";
@@ -128,11 +143,28 @@ namespace PasswordGenerator
                             break;
                     }
                 }
+                if(startFlag != '\0')
+                {
+                    switch(startFlag)
+                    {
+                        case 'u':
+                            currentChar[0] = randomUpperChar();
+                            break;
+                        case 'l':
+                            currentChar[0] = randomLowerChar();
+                            break;
+                        case 'n':
+                            currentChar[0] = randomNumber();
+                            break;
+                        case 's':
+                            currentChar[0] = randomSpecial();
+                            break;
+                    }
+                }
+
                 passwdBox.Text = new string(currentChar);
 
                 alert.Content = "";
-
-                flags = "";
             }
             
         }
