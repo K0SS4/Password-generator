@@ -6,9 +6,6 @@ using System.Windows.Navigation;
 
 namespace PasswordGenerator
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         Random rand = new Random();
@@ -41,7 +38,7 @@ namespace PasswordGenerator
         }
 
         char randomUpperChar()
-        {
+        { 
             char character = (char)rand.Next(65, 91);
             return character;
         }
@@ -90,9 +87,16 @@ namespace PasswordGenerator
             checkStartFlag();
             checkFlags();
             if(Int16.Parse(passwdLength.Text) < 4)
+            {
                 alert.Content = "Password length should be between 4 and 99 characters";
+                Log.Instance.LogToFile("Too short length provided");
+            }
+                
             else if (String.IsNullOrEmpty(flags))
+            {
                 alert.Content = "You have to check something!";
+                Log.Instance.LogToFile("No checkbox is checked");
+            }                
             else
             {
                 passwdLen = Int16.Parse(passwdLength.Text);
@@ -160,9 +164,11 @@ namespace PasswordGenerator
                             currentChar[0] = randomSpecial();
                             break;
                     }
+                    Log.Instance.LogToFile($"First letter set to: {currentChar[0]}");
                 }
 
                 passwdBox.Text = new string(currentChar);
+                Log.Instance.LogToFile($"Password generated: {passwdBox.Text}");
 
                 alert.Content = "";
             }
@@ -173,6 +179,18 @@ namespace PasswordGenerator
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void logEnable(object sender, RoutedEventArgs e)
+        {
+            Log.Instance.isStarted = true;
+            Log.Instance.LogToFile("Logging started");
+        }
+
+        private void logDisable(object sender, RoutedEventArgs e)
+        {
+            Log.Instance.LogToFile("Logging stopped");
+            Log.Instance.isStarted = false;
         }
     }
 }

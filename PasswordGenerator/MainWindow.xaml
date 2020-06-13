@@ -5,10 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasswordGenerator"
         mc:Ignorable="d"
-        Title="Password Generator" Height="395" Width="580">
+        Title="Password Generator" Height="395" Width="580"
+        ResizeMode="NoResize">
     <Grid Margin="0,0,0,0">
-        <Button x:Name="generateButton" Content="Generate" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Margin="450,44,0,0" FontFamily="{StaticResource COPRGT}" FontWeight="Bold" Click="generateButton_Click" />
-        <TextBox x:Name="passwdBox" Text="Your password will appear here after clicking &quot;Generate&quot;" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="50" Width="415" TextWrapping="Wrap" Margin="20,34,0,0"/>
+        <Grid Margin="10,10,14,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="548" Height="92">
+            <Button x:Name="generateButton" Content="Generate" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Height="30" Margin="0,30,10,0" FontFamily="{StaticResource COPRGT}" FontWeight="Bold" Click="generateButton_Click" />
+            <TextBox x:Name="passwdBox" Text="Your password will appear here after clicking &quot;Generate&quot;" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="50" Width="415" TextWrapping="Wrap" Margin="10,20,0,0"/>
+            <CheckBox x:Name="checkLog" Unchecked="logDisable" Checked="logEnable" Content="Start logging" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,0" />
+        </Grid>
+
         <Grid Margin="20,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Label x:Name="optionsLabel" Content="Options" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" FontWeight="Normal" FontSize="25" FontFamily="{StaticResource COPRGT}"/>
             <CheckBox x:Name="upper" Content="Uppercase letters" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="{StaticResource COPRGT}" Margin="0,50,0,0"/>
@@ -26,8 +31,8 @@
             <RadioButton x:Name="startLower" Content="Lowercase letter" HorizontalAlignment="Left" Margin="20,80,0,0" VerticalAlignment="Top" FontFamily="{StaticResource COPRGT}"/>
             <RadioButton x:Name="startNumber" Content="Number" HorizontalAlignment="Left" Margin="20,110,0,0" VerticalAlignment="Top" FontFamily="{StaticResource COPRGT}"/>
             <RadioButton x:Name="startSpecial" Content="Special character" HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top" FontFamily="{StaticResource COPRGT}"/>
-            <RadioButton x:Name="startRandom" Content="Random" IsChecked="True" HorizontalAlignment="Left" Margin="20,170,0,0" VerticalAlignment="Top" FontFamily="{StaticResource COPRGT}"/>
+            <RadioButton x:Name="startDefault" Content="Default" IsChecked="True" HorizontalAlignment="Left" Margin="20,170,0,0" VerticalAlignment="Top" FontFamily="{StaticResource COPRGT}"/>
         </Grid>
-        <Label x:Name="alert" Content="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="50" Width="340" Margin="77,0,155,30"/>
+        <Label x:Name="alert" Content="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="50" Width="340" Margin="75,0,157,17"/>
     </Grid>
 </Window>
