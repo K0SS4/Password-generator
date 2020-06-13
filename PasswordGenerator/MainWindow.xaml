@@ -20,13 +20,14 @@
             <Label x:Name="lengthLabel" Content="Password length" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="{StaticResource COPRGT}" Margin="0,10,0,0"/>
             <TextBox x:Name="passwdLength" MaxLength="2" PreviewTextInput="CheckIfNumbers" Text="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Width="28" Height="23" FontFamily="{StaticResource COPRGT}" TextWrapping="Wrap" Margin="0,40,0,0"/>
         </Grid>
-        <Grid Margin="0,40,20,0" HorizontalAlignment="Right" VerticalAlignment="Center">
-            <Label x:Name="startWithLabel" Content="Start with:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-10,0,0,0" FontWeight="Normal" FontSize="25" FontFamily="{StaticResource COPRGT}"/>
-            <RadioButton x:Name="startUpper" Content="Uppercase letter" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" FontFamily="{StaticResource COPRGT}"/>
-            <RadioButton x:Name="startLower" Content="Lowercase letter" HorizontalAlignment="Left" Margin="0,80,0,0" VerticalAlignment="Top" FontFamily="{StaticResource COPRGT}"/>
-            <RadioButton x:Name="startNumber" Content="Number" HorizontalAlignment="Left" Margin="0,110,0,0" VerticalAlignment="Top" FontFamily="{StaticResource COPRGT}"/>
-            <RadioButton x:Name="startSpecial" Content="Special character" HorizontalAlignment="Left" Margin="0,140,0,0" VerticalAlignment="Top" FontFamily="{StaticResource COPRGT}"/>
+        <Grid Margin="0,75,0,0" HorizontalAlignment="Right" VerticalAlignment="Center" Height="190" Width="180">
+            <Label x:Name="startWithLabel" Content="Start with:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" FontWeight="Normal" FontSize="25" FontFamily="{StaticResource COPRGT}" Width="170" RenderTransformOrigin="0.5,0.5"/>
+            <RadioButton x:Name="startUpper" Content="Uppercase letter" HorizontalAlignment="Left" Margin="20,50,0,0" VerticalAlignment="Top" FontFamily="{StaticResource COPRGT}"/>
+            <RadioButton x:Name="startLower" Content="Lowercase letter" HorizontalAlignment="Left" Margin="20,80,0,0" VerticalAlignment="Top" FontFamily="{StaticResource COPRGT}"/>
+            <RadioButton x:Name="startNumber" Content="Number" HorizontalAlignment="Left" Margin="20,110,0,0" VerticalAlignment="Top" FontFamily="{StaticResource COPRGT}"/>
+            <RadioButton x:Name="startSpecial" Content="Special character" HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top" FontFamily="{StaticResource COPRGT}"/>
+            <RadioButton x:Name="startRandom" Content="Random" IsChecked="True" HorizontalAlignment="Left" Margin="20,170,0,0" VerticalAlignment="Top" FontFamily="{StaticResource COPRGT}"/>
         </Grid>
-        <Label x:Name="alert" Content="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="50" Width="340" Margin="0,0,0,30"/>
+        <Label x:Name="alert" Content="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="50" Width="340" Margin="77,0,155,30"/>
     </Grid>
 </Window>
