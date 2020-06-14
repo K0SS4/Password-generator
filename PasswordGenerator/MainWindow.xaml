@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasswordGenerator"
         mc:Ignorable="d"
-        Title="Password Generator" Height="395" Width="580"
+        Title="Password Generator" Height="420" Width="590"
         ResizeMode="NoResize">
     <Grid Margin="0,0,0,0">
-        <Grid Margin="10,10,14,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="548" Height="92">
+        <Grid Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="548" Height="92">
             <Button x:Name="generateButton" Content="Generate" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Height="30" Margin="0,30,10,0" FontFamily="{StaticResource COPRGT}" FontWeight="Bold" Click="generateButton_Click" />
             <TextBox x:Name="passwdBox" Text="Your password will appear here after clicking &quot;Generate&quot;" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="50" Width="415" TextWrapping="Wrap" Margin="10,20,0,0"/>
             <CheckBox x:Name="checkLog" Unchecked="logDisable" Checked="logEnable" Content="Start logging" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,0" />
@@ -33,6 +33,9 @@
             <RadioButton x:Name="startSpecial" Content="Special character" HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top" FontFamily="{StaticResource COPRGT}"/>
             <RadioButton x:Name="startDefault" Content="Default" IsChecked="True" HorizontalAlignment="Left" Margin="20,170,0,0" VerticalAlignment="Top" FontFamily="{StaticResource COPRGT}"/>
         </Grid>
-        <Label x:Name="alert" Content="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="50" Width="340" Margin="75,0,157,17"/>
+        <Grid Margin="10,0,0,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="80">
+            <TextBox x:Name="alert" IsReadOnly="True" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="300" Height="50" Margin="0,0,0,0"/>
+            <Label x:Name="alertLabel" Content="Warnings:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10,0,0" FontWeight="Normal" FontSize="10" FontFamily="{StaticResource COPRGT}" Width="170" RenderTransformOrigin="0.5,0.5"/>
+        </Grid>
     </Grid>
 </Window>

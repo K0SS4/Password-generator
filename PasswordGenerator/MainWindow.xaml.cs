@@ -63,8 +63,11 @@ namespace PasswordGenerator
         void checkFlags()
         {
             if (upper.IsChecked == true) flags += "/u";
+
             if (lower.IsChecked == true) flags += "/l";
+
             if (numbers.IsChecked == true) flags += "/n";
+
             if (special.IsChecked == true) flags += "/s";
         }
 
@@ -88,14 +91,14 @@ namespace PasswordGenerator
             checkFlags();
             if(Int16.Parse(passwdLength.Text) < 4)
             {
-                alert.Content = "Password length should be between 4 and 99 characters";
-                Log.Instance.LogToFile("Too short length provided");
+                alert.Text = "Password length should be between 4 and 99 characters";
+                Log.Instance.LogToFile("Too short length provided", false);
             }
                 
             else if (String.IsNullOrEmpty(flags))
             {
-                alert.Content = "You have to check something!";
-                Log.Instance.LogToFile("No checkbox is checked");
+                alert.Text = "You have to check something!";
+                Log.Instance.LogToFile("No checkbox is checked", false);
             }                
             else
             {
@@ -164,13 +167,13 @@ namespace PasswordGenerator
                             currentChar[0] = randomSpecial();
                             break;
                     }
-                    Log.Instance.LogToFile($"First letter set to: {currentChar[0]}");
+                    Log.Instance.LogToFile($"First letter set to: {currentChar[0]}", false);
                 }
 
                 passwdBox.Text = new string(currentChar);
-                Log.Instance.LogToFile($"Password generated: {passwdBox.Text}");
+                Log.Instance.LogToFile($"\nPassword generated: {passwdBox.Text}\n", true);
 
-                alert.Content = "";
+                alert.Text = "";
             }
             
         }
@@ -184,12 +187,12 @@ namespace PasswordGenerator
         private void logEnable(object sender, RoutedEventArgs e)
         {
             Log.Instance.isStarted = true;
-            Log.Instance.LogToFile("Logging started");
+            Log.Instance.LogToFile("\nLogging started", true);
         }
 
         private void logDisable(object sender, RoutedEventArgs e)
         {
-            Log.Instance.LogToFile("Logging stopped");
+            Log.Instance.LogToFile("Logging stopped", false);
             Log.Instance.isStarted = false;
         }
     }

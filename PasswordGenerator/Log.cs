@@ -32,13 +32,16 @@ namespace PasswordGenerator
             }
         }
 
-        public void LogToFile(string message)
+        public void LogToFile(string message, bool start)
         {
             if(isStarted)
             {
-                Date = DateTime.Now.ToString("dd'/'MM'/'yyyy hh:mm:ss");
+                Date = DateTime.Now.ToString("dd'/'MM'/'yyyy HH:mm:ss");
                 StreamWriter sw = new StreamWriter("Logs.txt", true, Encoding.ASCII);
-                sw.Write($"[{Date}] {message}\n");
+                if(start)
+                    sw.Write(message + "\n");
+                else
+                    sw.Write($"[{Date}] {message}\n");
                 sw.Close();
             }
         }
